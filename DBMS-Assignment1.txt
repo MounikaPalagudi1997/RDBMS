@@ -1,0 +1,190 @@
+  ASSIGNMENT1
+-------------------------------------
+Apply AND logical operator to the attribute data of product table.
+..........................................................................................................
+->use DataScience
+select * from product;
+
+product_id       product_name           product_price
+  101	           samsung	              10
+  102	            miphone                   20
+  103	            nokia    	              30
+  104	            iphone                    40
+  105	           motorolla	              50
+
+select * from product 
+where product_id=101 and product_name='samsung' and
+product_price=10;
+
+101	samsung	10
+
+select * from product 
+where product_id=102 and product_name='miphone' and
+product_price=20;
+
+102	miphone	20
+
+select * from product 
+where product_id=103 and product_name='nokia' and
+product_price=30;
+
+103	nokia	30
+
+select * from product 
+where product_id=104 and product_name='iphone' and
+product_price=40;
+
+104	iphone	40
+
+select * from product 
+where product_id=105 and product_name='motorolla' and
+product_price=50;
+
+105	motorolla	50
+
+   ASSIGNMENT-2
+----------------------
+Apply combination of and or and not operator on employee
+.................................................................................................
+
+->use DataScience;
+select * from employee;
+
+  id     name            age          city
+100	Sachin	         27	      Bidar
+101	Apurva	         24	      Hyderabad
+102	Diksha	         21	      Delhi
+103	Deekshika        23	     Hyderabad
+104	Madhurja	 25	     Chennai
+
+select * from employee 
+where id=100 and (city='Mumbai' or age=27);
+
+100	Sachin	27	Bidar
+
+select * from employee 
+where name='Apurva' or (city='Delhi' and id=102);
+
+101	Apurva	24	Hyderabad
+102	Diksha	21	Delhi
+
+select * from employee 
+where age=25 and (not city='Mumbai' or name='Diksha');
+
+104	Madhurja	25	Chennai
+
+select * from employee 
+where city='Hyderabad' or (id=100 and age=27);
+
+100	Sachin	    27	Bidar
+101	Apurva	    24	Hyderabad
+103	Deekshika    23	Hyderabad
+
+select * from employee 
+where id=103 and (name='Deekshika'or age=32);
+
+103	Deekshika	23	Hyderabad
+
+select * from employee 
+where not id=100 and (city='Chennai' or age=25);
+
+104	Madhurja	25	Chennai
+
+select * from employee 
+where age=102 and (city='Delhi' or not id=103);
+
+(NO OUTPUT)
+
+select * from employee 
+where city='Bidar' or (name='Sachin' and id=100);
+
+100	Sachin	27	Bidar
+
+select * from employee 
+where not age=24 and (city='Hyderabad' or age=24);
+
+103	Deekshika	23	Hyderabad
+
+                                                        ASSIGNMENT-3
+                                                     ----------------
+Practice the entire session of the day with all technical concepts discussed
+..........................................................................................................................
+create database exampledb;
+
+use exampledb;
+
+create table practice(
+                               id int not null,
+                               name varchar(20) not null,
+                               age int not null,
+                               city varchar(20) not null,
+                               pin int not null,
+                               state varchar(20) not null
+);
+
+insert into practice values(
+100,'mounika',23,'chittoor',517257,'Andhra pradesh');
+
+insert into practice values(
+101,'yogi',24,'chennai',517356,'Tamilnadu');
+
+insert into practice values(
+102,'maggi',22,'banglore',518765,'karnataka');
+
+insert into practice values(
+103,'diksha',25,'tirupathi',596437,'Andhra pradesh');
+
+insert into practice values(
+104,'deekshika',26,'hyderabad',513557,'Telangana');
+
+select * from practice;
+
+  id    name       age   city                pin            state
+100	mounika	   23	chittoor	   517257	Andhra pradesh
+101	yogi	   24	chennai	           517356	  Tamilnadu
+102	maggi	   22	banglore	   518765	  karnataka
+103	diksha	   25	tirupathi	   596437 	Andhra pradesh
+104	deekshika  26	hyderabad           513557	Telangana
+
+select * from practice where state='Andhra pradesh';
+
+100	mounika	23	chittoor	517257	Andhra pradesh
+103	diksha	25	tirupathi	596437	Andhra pradesh
+
+select * from practice where age between 20 and 23;
+
+100	mounika	23	chittoor	517257	Andhra pradesh
+102	maggi	22	banglore	518765	karnataka
+
+select * from practice where id like '_%1';
+
+101	yogi	24	chennai	517356	Tamilnadu
+
+select * from practice where city like '%i';
+
+101	yogi	24	chennai	517356	Tamilnadu
+103	diksha	25	tirupathi	596437	Andhra pradesh
+
+select * from practice order by name;
+
+104	deekshika   26	hyderabad   513557	   Telangana
+103	diksha	   25	tirupathi   596437	   Andhra pradesh
+102	maggi	   22	banglore    518765         karnataka
+100	mounika	   23	chittoor    517257	   Andhra pradesh
+101	yogi	   24	chennai	    517356	   Tamilnadu
+
+select * from practice order by state;
+
+100	mounika	  23	chittoor	517257	Andhra pradesh
+103	diksha	  25	tirupathi	596437	Andhra pradesh
+102	maggi	  22	banglore	518765	karnataka
+101	yogi	  24	chennai	        517356	Tamilnadu
+104	deekshika  26   hyderabad	513557	Telangana
+
+select * from practice order by id DESC;
+
+104	deekshika  26   hyderabad	513557	Telangana
+103	diksha	  25	tirupathi	596437	Andhra pradesh
+102	maggi	  22	banglore	518765	karnataka
+101	yogi	  24	chennai	        517356	Tamilnadu
+100	mounika	  23	chittoor	517257	Andhra pradesh
